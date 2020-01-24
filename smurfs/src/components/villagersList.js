@@ -1,16 +1,16 @@
 import React from "react";
-import { Card, Button, CardTitle, CardText } from "reactstrap";
+import { Card, CardTitle } from "reactstrap";
 
 export const VillagersList = props => {
   console.log("from villagers", props);
-  
+
   return (
     <div className="villagers-list">
       <Card body inverse color="primary">
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>
-          With supporting text below as a natural lead-in to additional content.
-        </CardText>
+        <CardTitle>Name: {props.smurf.name}</CardTitle>
+        <CardTitle>Age: {props.smurf.age} years old</CardTitle>
+        <CardTitle>Height: {props.smurf.height}</CardTitle>
+        <CardTitle>ID: {props.smurf.id}</CardTitle>
       </Card>
     </div>
   );

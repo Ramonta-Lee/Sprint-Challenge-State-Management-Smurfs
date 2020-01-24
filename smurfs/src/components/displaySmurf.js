@@ -7,7 +7,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { VillagersList } from "./villagersList";
 
 const DisplaySmurf = props => {
- console.log("from display", props)
+  console.log("from display", props);
   return (
     <div className="smurfList-container">
       <h1>Welcome to Smurf Village!</h1>
@@ -54,18 +54,21 @@ const DisplaySmurf = props => {
       <Button onClick={props.fetchSmurf} color="success">
         See Villagers
       </Button>
-      {props.state.smurfs && !props.state.isFetching && props.state.map(smurf => {
-       console.log("from map", smurf)
-       return <VillagersList smurf={smurf} />
-      })};
+      {console.log("after click", props.state.fetchSmurfReducer.isFetching)}
+      {props.state.fetchSmurfReducer.smurfs &&
+        !props.state.fetchSmurfReducer.isFetching &&
+        props.state.fetchSmurfReducer.smurfs.map(smurf => {
+          console.log("from map", smurf);
+          return <VillagersList smurf={smurf} />;
+        })}
+      ;
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-   state,
-   smurfs: state.smurfs
+    state
   };
 };
 
