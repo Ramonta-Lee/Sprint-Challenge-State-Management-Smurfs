@@ -4,8 +4,10 @@ import { fetchSmurf } from "../actions";
 
 // form imports from reactstrap
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { VillagersList } from "./villagersList";
 
 const DisplaySmurf = props => {
+ console.log("from display", props)
   return (
     <div className="smurfList-container">
       <h1>Welcome to Smurf Village!</h1>
@@ -48,20 +50,22 @@ const DisplaySmurf = props => {
           />
         </FormGroup>
         <Button>Submit</Button>
-        {}
-        <Button onClick={props.fetchSmurf} color="success">
-          See Villagers
-        </Button>{" "}
       </Form>
+      <Button onClick={props.fetchSmurf} color="success">
+        See Villagers
+      </Button>
+      {props.state.smurfs && !props.state.isFetching && props.state.map(smurf => {
+       console.log("from map", smurf)
+       return <VillagersList smurf={smurf} />
+      })};
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.isFetching,
-    smurfs: state.smurfs,
-    error: state.error
+   state,
+   smurfs: state.smurfs
   };
 };
 

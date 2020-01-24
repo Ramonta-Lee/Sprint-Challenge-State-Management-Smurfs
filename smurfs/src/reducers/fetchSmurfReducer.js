@@ -6,14 +6,7 @@ import {
 
 const initialState = {
   isFetching: false,
-  smurfs: [
-    {
-      name: "Brainey",
-      age: 200,
-      height: "5cm",
-      id: 0
-    }
-  ],
+  smurfs: [],
   error: ""
 };
 
