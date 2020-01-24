@@ -7,6 +7,8 @@ import allReducers from "./reducers";
 import logger from "redux-logger";
 
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import App from "./components/App";
 
 const store = createStore(allReducers, applyMiddleware(thunk, logger));

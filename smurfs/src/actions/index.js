@@ -13,7 +13,7 @@ export const POST_SMURF_FAIL = "POST_SMURF_FAIL";
 export const fetchSmurf = () => dispatch => {
   dispatch({ type: FETCH_SMURF_START });
   axios
-    .get(``)
+    .get(`http://localhost:3333/smurfs`)
     .then(res => {
       // console.log(res);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
@@ -22,4 +22,15 @@ export const fetchSmurf = () => dispatch => {
       // console.log(err);
       dispatch({ type: FETCH_SMURF_FAIL, payload: err });
     });
+};
+
+export const postSmurf = () => dispatch => {
+ dispatch({type: POST_SMURF_START});
+ axios.post(``)
+ .then(res => {
+  dispatch({type: POST_SMURF_SUCCESS, payload: res.data});
+ })
+ .catch(err => {
+  dispatch({type: POST_SMURF_FAIL, payload: err})
+ });
 };
