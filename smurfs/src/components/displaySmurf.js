@@ -13,7 +13,7 @@ const DisplaySmurf = props => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
-   //this sends the data to the reducer
+    //this sends the data to the reducer
     props.postSmurf(data);
   };
 
@@ -28,13 +28,13 @@ const DisplaySmurf = props => {
         </div>
 
         <div>
-  <label htmlFor="age">Age:</label>
-          <input name="age" placeholder="Age" ref={register} required/>
+          <label htmlFor="age">Age:</label>
+          <input name="age" placeholder="Age" ref={register} required />
         </div>
 
         <div>
           <label htmlFor="height">Height in cm:</label>
-          <input name="height" placeholder="Height" ref={register} required/>
+          <input name="height" placeholder="Height" ref={register} required />
         </div>
         <input type="submit" />
       </form>
