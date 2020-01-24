@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 // For fetching data
 export const FETCH_SMURF_START = "FETCH_SMURF_START";
 export const FETCH_SMURF_SUCCESS = "FETCH_SMURF_SUCCESS";
@@ -24,13 +25,19 @@ export const fetchSmurf = () => dispatch => {
     });
 };
 
-export const postSmurf = () => dispatch => {
+
+
+export const postSmurf = data => dispatch => {
  dispatch({type: POST_SMURF_START});
- axios.post(``)
+ console.log("data", data)
+ axios.post(`http://localhost:3333/smurfs`, {name: data.name, age: Number(data.age), height: data.height})
  .then(res => {
+  // console.log("inside post", res.data)
   dispatch({type: POST_SMURF_SUCCESS, payload: res.data});
  })
  .catch(err => {
   dispatch({type: POST_SMURF_FAIL, payload: err})
  });
 };
+
+

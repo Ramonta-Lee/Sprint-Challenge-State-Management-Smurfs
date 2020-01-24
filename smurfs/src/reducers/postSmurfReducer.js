@@ -20,9 +20,11 @@ const initialState = {
 export const postSmurfReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_SMURF_START:
+      console.log("hello", action.payload);
       return {
         ...state,
-        isPosting: true
+        isPosting: true,
+        smurfs: [...state.smurfs, action.payload]
       };
     case POST_SMURF_SUCCESS:
       return {
@@ -34,7 +36,7 @@ export const postSmurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isPosting: false,
-        error: "Faild to post new smurf"
+        error: "Failed to post new smurf"
       };
     default:
       return state;
